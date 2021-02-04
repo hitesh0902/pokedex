@@ -10,7 +10,6 @@ const useStyles = makeStyles(() => ({
     position: "absolute",
     top: "50%",
     left: "50%",
-    transform: "translate(-50px,-50px)",
   },
 }));
 
@@ -23,8 +22,9 @@ function Details({ match }) {
   return (
     <div>
       <Navbar />
-      {pokemon && <PokemonDetails pokemon={pokemon} />}
-      {!pokemon && (
+      {pokemon ? (
+        <PokemonDetails pokemon={pokemon} />
+      ) : (
         <CircularProgress color="primary" className={classes.loader} />
       )}
     </div>
